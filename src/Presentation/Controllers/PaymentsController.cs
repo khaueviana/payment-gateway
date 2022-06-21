@@ -1,6 +1,7 @@
 namespace PaymentGateway.Presentation.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
+    using PaymentGateway.Presentation.Dto.Payment;
 
     [ApiController]
     [Produces("application/json")]
@@ -15,7 +16,7 @@ namespace PaymentGateway.Presentation.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<string> Get(PaymentRequest paymentRequest)
         {
             return new List<string> { "test" };
         }
