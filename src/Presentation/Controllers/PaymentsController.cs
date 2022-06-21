@@ -16,9 +16,9 @@ namespace PaymentGateway.Presentation.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<string> Get(PaymentRequest paymentRequest)
+        public PaymentResponse Get(PaymentRequest paymentRequest)
         {
-            return new List<string> { "test" };
+            return new PaymentResponse();
         }
     }
 }

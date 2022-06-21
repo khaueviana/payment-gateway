@@ -1,7 +1,10 @@
 ﻿namespace PaymentGateway.Presentation.Dto.Payment.Sources
 {
-    public class Source
+    using Swashbuckle.AspNetCore.Annotations;
+
+    [SwaggerSubType(typeof(CreditCard))]
+    public abstract class Source
     {
-        public string Type { get; set; }
+        public SourceType Type { get; set; }
     }
 }
