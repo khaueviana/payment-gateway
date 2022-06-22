@@ -6,4 +6,9 @@
 	<RootNamespace>PaymentGateway.Application.Services</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Application.Dto\Application.Dto.csproj" />
+    <ProjectReference Include="..\Domain.Model\Domain.Model.csproj" />
+  </ItemGroup>
+
 </Project>
