@@ -2,8 +2,8 @@
 {
     public enum Status
     {
-        Declined = 0,
-
+        Created = 0,
         Authorized = 1,
+        Declined = 2,
     }
 }

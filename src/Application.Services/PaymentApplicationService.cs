@@ -1,18 +1,37 @@
 ﻿namespace PaymentGateway.Application.Services
 {
-    using PaymentGateway.Application.Dto.Payments;
     using PaymentGateway.Application.Services.Interfaces;
+    using PaymentGateway.Domain.Core.Interfaces;
     using System;
     using System.Threading.Tasks;
+    using ApplicationDto = PaymentGateway.Application.Dto.Payments;
+    using DomainModel = PaymentGateway.Domain.Model.Payments;
 
     public class PaymentApplicationService : IPaymentApplicationService
     {
-        public Task<PaymentResponse> CreateAsync(PaymentRequest paymentRequest)
+        private readonly IAcquiringBankService acquiringBankService;
+        private readonly IPaymentsRepository paymentsRepository;
+
+        public PaymentApplicationService(IAcquiringBankService acquiringBankService, IPaymentsRepository paymentsRepository)
         {
-            throw new NotImplementedException();
+            this.acquiringBankService = acquiringBankService;
+            this.paymentsRepository = paymentsRepository;
         }
 
-        public Task<PaymentResponse> GetAsync(Guid id)
+        public Task<ApplicationDto.PaymentResponse> CreateAsync(ApplicationDto.PaymentRequest paymentRequest)
+        {
+            var customer = new DomainModel.Customer(paymentRequest.Customer.Id, paymentRequest.Customer.Name);
+            var shippingAddress = new DomainModel.ShippingAddress(paymentRequest.Shipping.Address.AddressLine1, )
+
+            var payment = new DomainModel.Payment(paymentRequest.Reference,
+                                                  paymentRequest.Currency,
+                                                  paymentRequest.Amount,
+                                                  paymentRequest.Description,
+                                                  customer,
+                                                  );
+        }
+
+        public Task<ApplicationDto.PaymentResponse> GetAsync(Guid id)
         {
             throw new NotImplementedException();
         }

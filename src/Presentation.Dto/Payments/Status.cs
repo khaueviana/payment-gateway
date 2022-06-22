@@ -2,14 +2,8 @@
 {
     public enum Status
     {
-        /// <summary>
-        /// Declined
-        /// </summary>
-        Declined = 0,
-
-        /// <summary>
-        /// Authorized
-        /// </summary>
+        Created = 0,
         Authorized = 1,
+        Declined = 2,
     }
 }

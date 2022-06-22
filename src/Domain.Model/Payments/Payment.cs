@@ -4,6 +4,24 @@
 
     public class Payment
     {
+        public Payment(
+            string reference,
+            string currency,
+            decimal amount,
+            string description,
+            Customer customer,
+            Shipping shipping,
+            Source source)
+        {
+            Reference = reference;
+            Currency = currency;
+            Amount = amount;
+            Description = description;
+            Customer = customer;
+            Shipping = shipping;
+            Source = source;
+        }
+
         public Payment(Guid id,
                        string reference,
                        string currency,
