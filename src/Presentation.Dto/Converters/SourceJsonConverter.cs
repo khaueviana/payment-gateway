@@ -1,6 +1,6 @@
 ﻿namespace PaymentGateway.Presentation.Dto.Converters
 {
-    using PaymentGateway.Presentation.Dto.Payment.Sources;
+    using PaymentGateway.Presentation.Dto.Payments.Sources;
     using System.Text.Json;
     using System.Text.Json.Serialization;
 

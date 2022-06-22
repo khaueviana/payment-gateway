@@ -1,7 +1,7 @@
 namespace PaymentGateway.Presentation.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
-    using PaymentGateway.Presentation.Dto.Payment;
+    using PaymentGateway.Presentation.Dto.Payments;
 
     [ApiController]
     [Produces("application/json")]
