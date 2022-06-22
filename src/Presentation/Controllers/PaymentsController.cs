@@ -15,8 +15,8 @@ namespace PaymentGateway.Presentation.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
-        public PaymentResponse Get(PaymentRequest paymentRequest)
+        [HttpPost]
+        public PaymentResponse Post(PaymentRequest paymentRequest)
         {
             return new PaymentResponse();
         }
