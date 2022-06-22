@@ -6,6 +6,27 @@
 
     public static class PaymentMapper
     {
+        public static ApplicationDto.PaymentResponse ToDto(this DomainModel.Payment payment)
+        {
+            if (payment == null)
+            {
+                return null;
+            }
+
+            return new ApplicationDto.PaymentResponse
+            {
+                Id = payment.Id,
+                Reference = payment.Reference,
+                Currency = payment.Currency,
+                Amount = payment.Amount,
+                Description = payment.Description,
+                Customer = payment.Customer.ToDto(),
+                Shipping = payment.Shipping.ToDto(),
+                Source = payment.Source.ToDto(),
+                Status = (ApplicationDto.Status)payment.Status,
+            };
+        }
+
         public static DomainModel.Payment ToDomainModel(this ApplicationDto.PaymentRequest paymentRequest)
         {
             if (paymentRequest == null)

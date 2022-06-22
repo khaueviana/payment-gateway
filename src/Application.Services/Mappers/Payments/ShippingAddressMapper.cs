@@ -5,6 +5,24 @@
 
     public static class ShippingAddressMapper
     {
+        public static ApplicationDto.ShippingAddress ToDto(this DomainModel.ShippingAddress shippingAddress)
+        {
+            if (shippingAddress == null)
+            {
+                return null;
+            }
+
+            return new ApplicationDto.ShippingAddress
+            {
+                AddressLine1 = shippingAddress.AddressLine1,
+                AddressLine2 = shippingAddress.AddressLine2,
+                City = shippingAddress.City,
+                Country = shippingAddress.Country,
+                State = shippingAddress.State,
+                Zip = shippingAddress.Zip,
+            };
+        }
+
         public static DomainModel.ShippingAddress ToDomainModel(this ApplicationDto.ShippingAddress shippingAddress)
         {
             if (shippingAddress == null)

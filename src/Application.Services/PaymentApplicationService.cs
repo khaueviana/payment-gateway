@@ -1,11 +1,11 @@
 ﻿namespace PaymentGateway.Application.Services
 {
     using PaymentGateway.Application.Services.Interfaces;
+    using PaymentGateway.Application.Services.Mappers.Payments;
     using PaymentGateway.Domain.Core.Interfaces;
     using System;
     using System.Threading.Tasks;
     using ApplicationDto = PaymentGateway.Application.Dto.Payments;
-    using DomainModel = PaymentGateway.Domain.Model.Payments;
 
     public class PaymentApplicationService : IPaymentApplicationService
     {
@@ -18,22 +18,22 @@
             this.paymentsRepository = paymentsRepository;
         }
 
-        public Task<ApplicationDto.PaymentResponse> CreateAsync(ApplicationDto.PaymentRequest paymentRequest)
+        public async Task<ApplicationDto.PaymentResponse> CreateAsync(ApplicationDto.PaymentRequest paymentRequest)
         {
-            var customer = new DomainModel.Customer(paymentRequest.Customer.Id, paymentRequest.Customer.Name);
-            var shippingAddress = new DomainModel.ShippingAddress(paymentRequest.Shipping.Address.AddressLine1, )
+            var payment = paymentRequest.ToDomainModel();
 
-            var payment = new DomainModel.Payment(paymentRequest.Reference,
-                                                  paymentRequest.Currency,
-                                                  paymentRequest.Amount,
-                                                  paymentRequest.Description,
-                                                  customer,
-                                                  );
+            await this.paymentsRepository.InsertAsync(payment);
+
+            await this.acquiringBankService.CreatePaymentAsync(payment);
+
+            return payment.ToDto();
         }
 
-        public Task<ApplicationDto.PaymentResponse> GetAsync(Guid id)
+        public async Task<ApplicationDto.PaymentResponse> GetAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var payment = await this.paymentsRepository.GetByIdAsync(id);
+
+            return payment.ToDto();
         }
     }
 }
