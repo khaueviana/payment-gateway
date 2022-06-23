@@ -5,7 +5,7 @@
     using PaymentGateway.Domain.Core.Interfaces;
     using System;
     using System.Threading.Tasks;
-    using ApplicationDto = PaymentGateway.Application.Dto.Payments;
+    using ApplicationDto = Dto.Payments;
 
     public class PaymentApplicationService : IPaymentApplicationService
     {

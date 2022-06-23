@@ -12,7 +12,7 @@ namespace PaymentGateway.Presentation.Controllers
     {
         private readonly IPaymentApplicationService paymentApplicationServices;
 
-        public PaymentsController(ILogger<PaymentsController> logger, IPaymentApplicationService paymentApplicationServices)
+        public PaymentsController(IPaymentApplicationService paymentApplicationServices)
         {
             this.paymentApplicationServices = paymentApplicationServices;
         }
@@ -24,7 +24,6 @@ namespace PaymentGateway.Presentation.Controllers
 
             return paymentResponseDto.ToPresentationDto();
         }
-
 
         [HttpGet]
         public async Task<PaymentResponse> Get(Guid id)
