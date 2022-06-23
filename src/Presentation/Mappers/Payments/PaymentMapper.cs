@@ -6,14 +6,8 @@
 
     public static class PaymentMapper
     {
-        public static ApplicationDto.PaymentRequest ToApplicationDto(this PresentationDto.PaymentRequest paymentRequest)
-        {
-            if (paymentRequest == null)
-            {
-                return null;
-            }
-
-            return new ApplicationDto.PaymentRequest
+        public static ApplicationDto.PaymentRequest ToApplicationDto(this PresentationDto.PaymentRequest paymentRequest) =>
+            new()
             {
                 Reference = paymentRequest.Reference,
                 Currency = paymentRequest.Currency,
@@ -23,16 +17,9 @@
                 Shipping = paymentRequest.Shipping.ToApplicationDto(),
                 Source = paymentRequest.Source.ToApplicationDto(),
             };
-        }
 
-        public static PresentationDto.PaymentResponse ToPresentationDto(this ApplicationDto.PaymentResponse paymentResponse)
-        {
-            if (paymentResponse == null)
-            {
-                return null;
-            }
-
-            return new PresentationDto.PaymentResponse
+        public static PresentationDto.PaymentResponse ToPresentationDto(this ApplicationDto.PaymentResponse paymentResponse) =>
+            new()
             {
                 Id = paymentResponse.Id,
                 Reference = paymentResponse.Reference,
@@ -44,7 +31,6 @@
                 Source = paymentResponse.Source.ToPresentationDto(),
                 Status = (PresentationDto.Status)paymentResponse.Status
             };
-        }
     }
 }
 

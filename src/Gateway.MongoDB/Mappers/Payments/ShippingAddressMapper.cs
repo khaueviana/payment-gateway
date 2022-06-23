@@ -1,11 +1,11 @@
-﻿namespace PaymentGateway.Application.Services.Mappers.Payments
+﻿namespace PaymentGateway.Gateway.MongoDB.Mappers.Payments
 {
-    using ApplicationDto = Dto.Payments;
     using DomainModel = Domain.Model.Payments;
+    using MongoDBModel = Model.Payments;
 
     public static class ShippingAddressMapper
     {
-        public static ApplicationDto.ShippingAddress ToDto(this DomainModel.ShippingAddress shippingAddress) =>
+        public static MongoDBModel.ShippingAddress ToMongoDBModel(this DomainModel.ShippingAddress shippingAddress) =>
             new()
             {
                 AddressLine1 = shippingAddress.AddressLine1,
@@ -16,7 +16,7 @@
                 Zip = shippingAddress.Zip,
             };
 
-        public static DomainModel.ShippingAddress ToDomainModel(this ApplicationDto.ShippingAddress shippingAddress) =>
+        public static DomainModel.ShippingAddress ToDomainModel(this MongoDBModel.ShippingAddress shippingAddress) =>
             new(shippingAddress.AddressLine1,
                 shippingAddress.AddressLine2,
                 shippingAddress.City,

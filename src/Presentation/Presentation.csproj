@@ -14,8 +14,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Application.Dto\Application.Dto.csproj" />
     <ProjectReference Include="..\Application.Services\Application.Services.csproj" />
-    <ProjectReference Include="..\Data.Gateway.AcquiringBank\Data.AcquiringBank.csproj" />
-    <ProjectReference Include="..\Data.MongoDB\Data.MongoDB.csproj" />
+    <ProjectReference Include="..\Gateway.AcquiringBank\Gateway.AcquiringBank.csproj" />
+    <ProjectReference Include="..\Gateway.MongoDB\Gateway.MongoDB.csproj" />
     <ProjectReference Include="..\Infrastructure.CrossCutting\Infrastructure.CrossCutting.csproj" />
     <ProjectReference Include="..\Presentation.Dto\Presentation.Dto.csproj" />
   </ItemGroup>

@@ -5,14 +5,8 @@
 
     public static class ShippingAddressMapper
     {
-        public static ApplicationDto.ShippingAddress ToApplicationDto(this PresentationDto.ShippingAddress shippingAddress)
-        {
-            if (shippingAddress == null)
-            {
-                return null;
-            }
-
-            return new ApplicationDto.ShippingAddress
+        public static ApplicationDto.ShippingAddress ToApplicationDto(this PresentationDto.ShippingAddress shippingAddress) =>
+            new()
             {
                 AddressLine1 = shippingAddress.AddressLine1,
                 AddressLine2 = shippingAddress.AddressLine2,
@@ -21,16 +15,9 @@
                 State = shippingAddress.State,
                 Zip = shippingAddress.Zip,
             };
-        }
 
-        public static PresentationDto.ShippingAddress ToPresentationDto(this ApplicationDto.ShippingAddress shippingAddress)
-        {
-            if (shippingAddress == null)
-            {
-                return null;
-            }
-
-            return new PresentationDto.ShippingAddress
+        public static PresentationDto.ShippingAddress ToPresentationDto(this ApplicationDto.ShippingAddress shippingAddress) =>
+            new()
             {
                 AddressLine1 = shippingAddress.AddressLine1,
                 AddressLine2 = shippingAddress.AddressLine2,
@@ -39,6 +26,5 @@
                 State = shippingAddress.State,
                 Zip = shippingAddress.Zip,
             };
-        }
     }
 }

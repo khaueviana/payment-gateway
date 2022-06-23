@@ -1,7 +1,7 @@
 ﻿namespace PaymentGateway.Presentation.Configuration
 {
     using Infrastructure.CrossCutting.Interfaces;
-    using PaymentGateway.Data.AcquiringBank.Interfaces;
+    using PaymentGateway.Gateway.AcquiringBank.Interfaces;
     using Refit;
 
     public static class AcquiringBankConfiguration

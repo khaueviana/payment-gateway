@@ -1,18 +1,12 @@
 ﻿namespace PaymentGateway.Application.Services.Mappers.Payments.Sources
 {
-    using ApplicationDto = PaymentGateway.Application.Dto.Payments;
-    using DomainModel = PaymentGateway.Domain.Model.Payments;
+    using ApplicationDto = Dto.Payments;
+    using DomainModel = Domain.Model.Payments;
 
     public static class SourceMapper
     {
-        public static ApplicationDto.Sources.Source ToDto(this DomainModel.Sources.Source source)
-        {
-            if (source == null)
-            {
-                return null;
-            }
-
-            return source switch
+        public static ApplicationDto.Sources.Source ToDto(this DomainModel.Sources.Source source) =>
+            source switch
             {
                 DomainModel.Sources.CreditCard creditCard => new ApplicationDto.Sources.CreditCard
                 {
@@ -26,16 +20,9 @@
                 },
                 _ => null,
             };
-        }
 
-        public static DomainModel.Sources.Source ToDomainModel(this ApplicationDto.Sources.Source source)
-        {
-            if (source == null)
-            {
-                return null;
-            }
-
-            return source switch
+        public static DomainModel.Sources.Source ToDomainModel(this ApplicationDto.Sources.Source source) =>
+            source switch
             {
                 ApplicationDto.Sources.CreditCard creditCard => new DomainModel.Sources.CreditCard((DomainModel.Sources.SourceType)creditCard.Type,
                                                                                                     creditCard.Number,
@@ -46,6 +33,5 @@
                                                                                                     creditCard.Billing.ToDomainModel()),
                 _ => null,
             };
-        }
     }
 }

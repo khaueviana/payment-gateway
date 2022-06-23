@@ -5,14 +5,8 @@
 
     public static class SourceMapper
     {
-        public static ApplicationDto.Sources.Source ToApplicationDto(this PresentationDto.Sources.Source source)
-        {
-            if (source == null)
-            {
-                return null;
-            }
-
-            return source switch
+        public static ApplicationDto.Sources.Source ToApplicationDto(this PresentationDto.Sources.Source source) =>
+            source switch
             {
                 PresentationDto.Sources.CreditCard creditCard => new ApplicationDto.Sources.CreditCard
                 {
@@ -26,16 +20,9 @@
                 },
                 _ => null,
             };
-        }
 
-        public static PresentationDto.Sources.Source ToPresentationDto(this ApplicationDto.Sources.Source source)
-        {
-            if (source == null)
-            {
-                return null;
-            }
-
-            return source switch
+        public static PresentationDto.Sources.Source ToPresentationDto(this ApplicationDto.Sources.Source source) =>
+            source switch
             {
                 ApplicationDto.Sources.CreditCard creditCard => new PresentationDto.Sources.CreditCard
                 {
@@ -49,6 +36,5 @@
                 },
                 _ => null,
             };
-        }
     }
 }

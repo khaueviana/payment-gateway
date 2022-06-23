@@ -15,25 +15,25 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation.Dto", "src\Pre
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{B0118309-BB0C-4B8F-81FB-4A95668B8BA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.Services", "src\Application.Services\Application.Services.csproj", "{6DC2C5B0-BBF7-4218-8B13-568743AA245B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Services", "src\Application.Services\Application.Services.csproj", "{6DC2C5B0-BBF7-4218-8B13-568743AA245B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.Dto", "src\Application.Dto\Application.Dto.csproj", "{CE0A8AB6-C642-447A-B25A-3AAB8AD3D7C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Dto", "src\Application.Dto\Application.Dto.csproj", "{CE0A8AB6-C642-447A-B25A-3AAB8AD3D7C8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{2450E498-1F9F-43D7-8E50-1D48AC3A8AFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Core", "src\Domain.Core\Domain.Core.csproj", "{6329A6F7-40AC-410F-B98B-DE33AEAEF48C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Core", "src\Domain.Core\Domain.Core.csproj", "{6329A6F7-40AC-410F-B98B-DE33AEAEF48C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Model", "src\Domain.Model\Domain.Model.csproj", "{263661B7-DC65-47D6-9835-FD47A8542DE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Model", "src\Domain.Model\Domain.Model.csproj", "{263661B7-DC65-47D6-9835-FD47A8542DE3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Data", "4 - Data", "{0CC4E686-F16A-43A0-814B-9F1557D14193}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Gateway", "4 - Gateway", "{0CC4E686-F16A-43A0-814B-9F1557D14193}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Infrastructure", "5 - Infrastructure", "{91801B51-6F02-4D71-8E45-D63F6FEAAD1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.AcquiringBank", "src\Data.Gateway.AcquiringBank\Data.AcquiringBank.csproj", "{8CE85617-A53B-4A76-B536-617D244E0486}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gateway.AcquiringBank", "src\Gateway.AcquiringBank\Gateway.AcquiringBank.csproj", "{8CE85617-A53B-4A76-B536-617D244E0486}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.MongoDB", "src\Data.MongoDB\Data.MongoDB.csproj", "{EBE5E8A7-3782-4C89-848D-4770410FD4E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gateway.MongoDB", "src\Gateway.MongoDB\Gateway.MongoDB.csproj", "{EBE5E8A7-3782-4C89-848D-4770410FD4E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.CrossCutting", "src\Infrastructure.CrossCutting\Infrastructure.CrossCutting.csproj", "{20102F70-7B7D-4C77-BCB9-65D85E9D4BE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.CrossCutting", "src\Infrastructure.CrossCutting\Infrastructure.CrossCutting.csproj", "{20102F70-7B7D-4C77-BCB9-65D85E9D4BE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

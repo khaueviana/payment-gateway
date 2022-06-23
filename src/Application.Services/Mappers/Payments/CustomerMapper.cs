@@ -1,32 +1,17 @@
 ﻿namespace PaymentGateway.Application.Services.Mappers.Payments
 {
-    using ApplicationDto = PaymentGateway.Application.Dto.Payments;
-    using DomainModel = PaymentGateway.Domain.Model.Payments;
+    using ApplicationDto = Dto.Payments;
+    using DomainModel = Domain.Model.Payments;
 
     public static class CustomerMapper
     {
-        public static ApplicationDto.Customer ToDto(this DomainModel.Customer customer)
-        {
-            if (customer == null)
-            {
-                return null;
-            }
-
-            return new ApplicationDto.Customer
+        public static ApplicationDto.Customer ToDto(this DomainModel.Customer customer) =>
+            new()
             {
                 Id = customer.Id,
                 Name = customer.Name,
             };
-        }
 
-        public static DomainModel.Customer ToDomainModel(this ApplicationDto.Customer customer)
-        {
-            if (customer == null)
-            {
-                return null;
-            }
-
-            return new DomainModel.Customer(customer.Id, customer.Name);
-        }
+        public static DomainModel.Customer ToDomainModel(this ApplicationDto.Customer customer) => new(customer.Id, customer.Name);
     }
 }

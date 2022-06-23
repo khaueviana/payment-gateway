@@ -5,32 +5,18 @@
 
     public static class CustomerMapper
     {
-        public static ApplicationDto.Customer ToApplicationDto(this PresentationDto.Customer customer)
-        {
-            if (customer == null)
-            {
-                return null;
-            }
-
-            return new ApplicationDto.Customer
+        public static ApplicationDto.Customer ToApplicationDto(this PresentationDto.Customer customer) =>
+            new()
             {
                 Id = customer.Id,
                 Name = customer.Name,
             };
-        }
 
-        public static PresentationDto.Customer ToPresentationDto(this ApplicationDto.Customer customer)
-        {
-            if (customer == null)
-            {
-                return null;
-            }
-
-            return new PresentationDto.Customer
+        public static PresentationDto.Customer ToPresentationDto(this ApplicationDto.Customer customer) =>
+            new()
             {
                 Id = customer.Id,
                 Name = customer.Name,
             };
-        }
     }
 }

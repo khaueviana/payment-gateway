@@ -5,14 +5,8 @@
 
     public static class BillingAddressMapper
     {
-        public static ApplicationDto.Sources.BillingAddress ToApplicationDto(this PresentationDto.Sources.BillingAddress billingAddress)
-        {
-            if (billingAddress == null)
-            {
-                return null;
-            }
-
-            return new ApplicationDto.Sources.BillingAddress
+        public static ApplicationDto.Sources.BillingAddress ToApplicationDto(this PresentationDto.Sources.BillingAddress billingAddress) =>
+            new()
             {
                 AddressLine1 = billingAddress.AddressLine1,
                 AddressLine2 = billingAddress.AddressLine2,
@@ -21,16 +15,9 @@
                 State = billingAddress.State,
                 Zip = billingAddress.Zip,
             };
-        }
 
-        public static PresentationDto.Sources.BillingAddress ToPresentationDto(this ApplicationDto.Sources.BillingAddress billingAddress)
-        {
-            if (billingAddress == null)
-            {
-                return null;
-            }
-
-            return new PresentationDto.Sources.BillingAddress
+        public static PresentationDto.Sources.BillingAddress ToPresentationDto(this ApplicationDto.Sources.BillingAddress billingAddress) =>
+            new()
             {
                 AddressLine1 = billingAddress.AddressLine1,
                 AddressLine2 = billingAddress.AddressLine2,
@@ -39,6 +26,5 @@
                 State = billingAddress.State,
                 Zip = billingAddress.Zip,
             };
-        }
     }
 }

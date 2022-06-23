@@ -2,7 +2,7 @@
 {
     using Infrastructure.CrossCutting.Interfaces;
     using MongoDB.Driver;
-    using PaymentGateway.Data.MongoDB.Repositories;
+    using PaymentGateway.Gateway.MongoDB.Repositories;
     using PaymentGateway.Domain.Core.Interfaces;
 
     public static class MongoDBConfiguration

@@ -5,32 +5,18 @@
 
     public static class ShippingMapper
     {
-        public static ApplicationDto.Shipping ToApplicationDto(this PresentationDto.Shipping shipping)
-        {
-            if (shipping == null)
-            {
-                return null;
-            }
-
-            return new ApplicationDto.Shipping
+        public static ApplicationDto.Shipping ToApplicationDto(this PresentationDto.Shipping shipping) =>
+            new()
             {
                 Address = shipping.Address.ToApplicationDto(),
                 PhoneNumber = shipping.PhoneNumber,
             };
-        }
 
-        public static PresentationDto.Shipping ToPresentationDto(this ApplicationDto.Shipping shipping)
-        {
-            if (shipping == null)
-            {
-                return null;
-            }
-
-            return new PresentationDto.Shipping
+        public static PresentationDto.Shipping ToPresentationDto(this ApplicationDto.Shipping shipping) =>
+            new()
             {
                 Address = shipping.Address.ToPresentationDto(),
                 PhoneNumber = shipping.PhoneNumber,
             };
-        }
     }
 }
