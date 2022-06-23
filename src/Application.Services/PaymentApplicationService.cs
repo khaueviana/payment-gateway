@@ -20,6 +20,13 @@
 
         public async Task<ApplicationDto.PaymentResponse> CreateAsync(ApplicationDto.PaymentRequest paymentRequest)
         {
+            var existingPayment = await this.paymentsRepository.GetByReference(paymentRequest.Reference);
+
+            if (existingPayment != null)
+            {
+                return existingPayment.ToDto();
+            }
+
             var payment = paymentRequest.ToDomainModel();
 
             var isAuthorized = await this.acquiringBankService.AuthorizeAsync(payment);

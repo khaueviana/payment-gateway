@@ -26,5 +26,11 @@
             var model = await this.FindByIdAsync(id);
             return model.ToDomainModel();
         }
+
+        public async Task<DomainModel.Payment> GetByReference(string reference)
+        {
+            var model = await this.FindOneAsync(x => x.Reference == reference);
+            return model.ToDomainModel();
+        }
     }
 }

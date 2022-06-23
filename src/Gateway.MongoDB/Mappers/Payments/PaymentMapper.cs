@@ -20,8 +20,14 @@
                 Status = (int)payment.Status,
             };
 
-        public static DomainModel.Payment ToDomainModel(this MongoDBModel.Payment payment) =>
-            new(payment.Id,
+        public static DomainModel.Payment ToDomainModel(this MongoDBModel.Payment payment)
+        {
+            if (payment == null)
+            {
+                return null;
+            }
+
+            return new(payment.Id,
                 payment.Reference,
                 payment.Currency,
                 payment.Amount,
@@ -30,5 +36,6 @@
                 payment.Shipping.ToDomainModel(),
                 payment.Source.ToDomainModel(),
                 (DomainModel.Status)payment.Status);
+        }
     }
 }

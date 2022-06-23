@@ -9,5 +9,7 @@
         Task InsertAsync(Payment payment);
 
         Task<Payment> GetByIdAsync(Guid id);
+
+        Task<Payment> GetByReference(string reference);
     }
 }
