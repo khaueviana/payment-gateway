@@ -7,12 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Refit.HttpClientFactory" Version="6.3.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Application.Dto\Application.Dto.csproj" />
     <ProjectReference Include="..\Application.Services\Application.Services.csproj" />
+    <ProjectReference Include="..\Data.Gateway.AcquiringBank\Data.AcquiringBank.csproj" />
+    <ProjectReference Include="..\Data.MongoDB\Data.MongoDB.csproj" />
+    <ProjectReference Include="..\Infrastructure.CrossCutting\Infrastructure.CrossCutting.csproj" />
     <ProjectReference Include="..\Presentation.Dto\Presentation.Dto.csproj" />
   </ItemGroup>
 

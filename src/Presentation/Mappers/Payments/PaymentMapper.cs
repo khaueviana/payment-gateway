@@ -42,8 +42,9 @@
                 Customer = paymentResponse.Customer.ToPresentationDto(),
                 Shipping = paymentResponse.Shipping.ToPresentationDto(),
                 Source = paymentResponse.Source.ToPresentationDto(),
-                Status = (PresentationDto.Status)paymentResponse.Status;
-        };
+                Status = (PresentationDto.Status)paymentResponse.Status
+            };
+        }
     }
 }
-}
+
