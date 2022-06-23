@@ -1,6 +1,6 @@
 ﻿namespace Infrastructure.CrossCutting.Extensions
 {
-    public static class MaskExtensions
+    public static class StringExtensions
     {
         public static string Mask(this string source, int start, int maskLength)
         {
