@@ -5,7 +5,7 @@
 
     public static class PaymentMapper
     {
-        public static Dto.Payment ToDto(this DomainModel.Payment payment)
+        public static Dto.PaymentRequest ToDto(this DomainModel.Payment payment)
         {
             if (payment == null)
             {
@@ -19,7 +19,7 @@
                 return null;
             }
 
-            return new Dto.Payment
+            return new Dto.PaymentRequest
             {
                 Number = creditCard.Number,
                 ExpiryMonth = creditCard.ExpiryMonth,

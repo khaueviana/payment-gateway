@@ -13,13 +13,15 @@
             Shipping shipping,
             Source source)
         {
-            Reference = reference;
-            Currency = currency;
-            Amount = amount;
-            Description = description;
-            Customer = customer;
-            Shipping = shipping;
-            Source = source;
+            this.Id = Guid.NewGuid();
+            this.Status = Status.Created;
+            this.Reference = reference;
+            this.Currency = currency;
+            this.Amount = amount;
+            this.Description = description;
+            this.Customer = customer;
+            this.Shipping = shipping;
+            this.Source = source;
         }
 
         public Payment(Guid id,
@@ -43,6 +45,12 @@
             Status = status;
         }
 
+        public void Authorize(bool isAuthorized)
+        {
+            this.Status = isAuthorized ? Status.Authorized : Status.Declined;
+            this.Source.MaskSensitiveData();
+        }
+
         public Guid Id { get; }
 
         public string Reference { get; }
@@ -59,6 +67,6 @@
 
         public Source Source { get; }
 
-        public Status Status { get; }
+        public Status Status { get; private set; }
     }
 }

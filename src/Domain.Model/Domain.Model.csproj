@@ -6,4 +6,8 @@
 	<RootNamespace>PaymentGateway.Domain.Model</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure.CrossCutting\Infrastructure.CrossCutting.csproj" />
+  </ItemGroup>
+
 </Project>

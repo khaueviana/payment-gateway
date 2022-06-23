@@ -22,9 +22,11 @@
         {
             var payment = paymentRequest.ToDomainModel();
 
-            await this.paymentsRepository.InsertAsync(payment);
+            var isAuthorized = await this.acquiringBankService.AuthorizeAsync(payment);
 
-            await this.acquiringBankService.CreatePaymentAsync(payment);
+            payment.Authorize(isAuthorized);
+
+            await this.paymentsRepository.InsertAsync(payment);
 
             return payment.ToDto();
         }

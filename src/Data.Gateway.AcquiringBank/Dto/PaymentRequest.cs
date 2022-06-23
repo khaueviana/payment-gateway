@@ -1,6 +1,6 @@
 ﻿namespace PaymentGateway.Data.AcquiringBank.Dto
 {
-    public class Payment
+    public class PaymentRequest
     {
         public string Number { get; set; }
 

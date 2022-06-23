@@ -6,7 +6,7 @@
 
     public interface IAcquiringBankApi
     {
-        [Post("/v1/payments")]
-        Task CreatePaymentAsync([Body(BodySerializationMethod.UrlEncoded)] Payment payment);
+        [Post("/v1/payments/")]
+        Task<PaymentResponse> AuthorizeAsync([Body(BodySerializationMethod.UrlEncoded)] PaymentRequest paymentRequest);
     }
 }

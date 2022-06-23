@@ -15,9 +15,10 @@
             this.acquiringBankApi = acquiringBankApi;
         }
 
-        public Task CreatePaymentAsync(DomainModel.Payment payment)
+        public async Task<bool> AuthorizeAsync(DomainModel.Payment payment)
         {
-            return acquiringBankApi.CreatePaymentAsync(payment.ToDto());
+            var response = await acquiringBankApi.AuthorizeAsync(payment.ToDto());
+            return response.IsAuthorized;
         }
     }
 }

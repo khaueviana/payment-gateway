@@ -5,6 +5,6 @@
 
     public interface IAcquiringBankService
     {
-        Task CreatePaymentAsync(Payment payment);
+        Task<bool> AuthorizeAsync(Payment payment);
     }
 }

@@ -8,5 +8,7 @@
         }
 
         public SourceType Type { get; }
+
+        public abstract void MaskSensitiveData();
     }
 }
