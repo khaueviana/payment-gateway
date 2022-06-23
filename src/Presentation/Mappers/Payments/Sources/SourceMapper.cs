@@ -27,5 +27,28 @@
                 _ => null,
             };
         }
+
+        public static PresentationDto.Sources.Source ToPresentationDto(this ApplicationDto.Sources.Source source)
+        {
+            if (source == null)
+            {
+                return null;
+            }
+
+            return source switch
+            {
+                ApplicationDto.Sources.CreditCard creditCard => new PresentationDto.Sources.CreditCard
+                {
+                    Type = (PresentationDto.Sources.SourceType)creditCard.Type,
+                    Number = creditCard.Number,
+                    ExpiryMonth = creditCard.ExpiryMonth,
+                    ExpiryYear = creditCard.ExpiryYear,
+                    Name = creditCard.Name,
+                    Cvv = creditCard.Cvv,
+                    Billing = creditCard.Billing.ToPresentationDto(),
+                },
+                _ => null,
+            };
+        }
     }
 }

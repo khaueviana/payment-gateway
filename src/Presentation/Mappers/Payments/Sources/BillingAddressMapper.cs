@@ -22,5 +22,23 @@
                 Zip = billingAddress.Zip,
             };
         }
+
+        public static PresentationDto.Sources.BillingAddress ToPresentationDto(this ApplicationDto.Sources.BillingAddress billingAddress)
+        {
+            if (billingAddress == null)
+            {
+                return null;
+            }
+
+            return new PresentationDto.Sources.BillingAddress
+            {
+                AddressLine1 = billingAddress.AddressLine1,
+                AddressLine2 = billingAddress.AddressLine2,
+                City = billingAddress.City,
+                Country = billingAddress.Country,
+                State = billingAddress.State,
+                Zip = billingAddress.Zip,
+            };
+        }
     }
 }

@@ -24,5 +24,26 @@
                 Source = paymentRequest.Source.ToApplicationDto(),
             };
         }
+
+        public static PresentationDto.PaymentResponse ToPresentationDto(this ApplicationDto.PaymentResponse paymentResponse)
+        {
+            if (paymentResponse == null)
+            {
+                return null;
+            }
+
+            return new PresentationDto.PaymentResponse
+            {
+                Id = paymentResponse.Id,
+                Reference = paymentResponse.Reference,
+                Currency = paymentResponse.Currency,
+                Amount = paymentResponse.Amount,
+                Description = paymentResponse.Description,
+                Customer = paymentResponse.Customer.ToPresentationDto(),
+                Shipping = paymentResponse.Shipping.ToPresentationDto(),
+                Source = paymentResponse.Source.ToPresentationDto(),
+                Status = (PresentationDto.Status)paymentResponse.Status;
+        };
     }
+}
 }

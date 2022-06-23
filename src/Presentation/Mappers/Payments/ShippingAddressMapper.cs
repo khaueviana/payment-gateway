@@ -22,5 +22,23 @@
                 Zip = shippingAddress.Zip,
             };
         }
+
+        public static PresentationDto.ShippingAddress ToPresentationDto(this ApplicationDto.ShippingAddress shippingAddress)
+        {
+            if (shippingAddress == null)
+            {
+                return null;
+            }
+
+            return new PresentationDto.ShippingAddress
+            {
+                AddressLine1 = shippingAddress.AddressLine1,
+                AddressLine2 = shippingAddress.AddressLine2,
+                City = shippingAddress.City,
+                Country = shippingAddress.Country,
+                State = shippingAddress.State,
+                Zip = shippingAddress.Zip,
+            };
+        }
     }
 }

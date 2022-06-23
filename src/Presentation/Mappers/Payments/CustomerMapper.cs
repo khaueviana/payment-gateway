@@ -18,5 +18,19 @@
                 Name = customer.Name,
             };
         }
+
+        public static PresentationDto.Customer ToPresentationDto(this ApplicationDto.Customer customer)
+        {
+            if (customer == null)
+            {
+                return null;
+            }
+
+            return new PresentationDto.Customer
+            {
+                Id = customer.Id,
+                Name = customer.Name,
+            };
+        }
     }
 }

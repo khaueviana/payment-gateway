@@ -18,5 +18,19 @@
                 PhoneNumber = shipping.PhoneNumber,
             };
         }
+
+        public static PresentationDto.Shipping ToPresentationDto(this ApplicationDto.Shipping shipping)
+        {
+            if (shipping == null)
+            {
+                return null;
+            }
+
+            return new PresentationDto.Shipping
+            {
+                Address = shipping.Address.ToPresentationDto(),
+                PhoneNumber = shipping.PhoneNumber,
+            };
+        }
     }
 }

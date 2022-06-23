@@ -1,24 +1,37 @@
 namespace PaymentGateway.Presentation.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
+    using PaymentGateway.Application.Services.Interfaces;
     using PaymentGateway.Presentation.Dto.Payments;
+    using PaymentGateway.Presentation.Mappers.Payments;
 
     [ApiController]
     [Produces("application/json")]
     [Route("v1/payments")]
     public class PaymentsController : ControllerBase
     {
-        private readonly ILogger<PaymentsController> _logger;
+        private readonly IPaymentApplicationService paymentApplicationServices;
 
-        public PaymentsController(ILogger<PaymentsController> logger)
+        public PaymentsController(ILogger<PaymentsController> logger, IPaymentApplicationService paymentApplicationServices)
         {
-            _logger = logger;
+            this.paymentApplicationServices = paymentApplicationServices;
         }
 
         [HttpPost]
-        public PaymentResponse Post(PaymentRequest paymentRequest)
+        public async Task<PaymentResponse> PostAsync(PaymentRequest paymentRequest)
         {
-            return new PaymentResponse();
+            var paymentResponseDto = await this.paymentApplicationServices.CreateAsync(paymentRequest.ToApplicationDto());
+
+            return paymentResponseDto.ToPresentationDto();
+        }
+
+
+        [HttpGet]
+        public async Task<PaymentResponse> Get(Guid id)
+        {
+            var paymentResponseDto = await this.paymentApplicationServices.GetAsync(id);
+
+            return paymentResponseDto.ToPresentationDto();
         }
     }
 }

@@ -18,5 +18,19 @@
                 PhoneNumber = billing.PhoneNumber,
             };
         }
+
+        public static PresentationDto.Sources.Billing ToPresentationDto(this ApplicationDto.Sources.Billing billing)
+        {
+            if (billing == null)
+            {
+                return null;
+            }
+
+            return new PresentationDto.Sources.Billing
+            {
+                Address = billing.Address.ToPresentationDto(),
+                PhoneNumber = billing.PhoneNumber,
+            };
+        }
     }
 }
