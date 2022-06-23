@@ -16,6 +16,7 @@ builder.Services
     {
         opt.EnableAnnotations(enableAnnotationsForInheritance: true, enableAnnotationsForPolymorphism: true);
     })
+    .AddFluentValidators()
     .AddMongoDB()
     .AddAcquiringBank()
     .AddAplicationServices();

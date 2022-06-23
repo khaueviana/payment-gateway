@@ -1,5 +1,6 @@
 namespace PaymentGateway.Presentation.Controllers
 {
+    using FluentValidation;
     using Microsoft.AspNetCore.Mvc;
     using PaymentGateway.Application.Services.Interfaces;
     using PaymentGateway.Presentation.Dto.Payments;
@@ -11,26 +12,54 @@ namespace PaymentGateway.Presentation.Controllers
     public class PaymentsController : ControllerBase
     {
         private readonly IPaymentApplicationService paymentApplicationServices;
+        private readonly IValidator<PaymentRequest> validator;
 
-        public PaymentsController(IPaymentApplicationService paymentApplicationServices)
+        public PaymentsController(IPaymentApplicationService paymentApplicationServices, IValidator<PaymentRequest> validator)
         {
             this.paymentApplicationServices = paymentApplicationServices;
+            this.validator = validator;
         }
 
         [HttpPost]
-        public async Task<PaymentResponse> PostAsync(PaymentRequest paymentRequest)
+        public async Task<ActionResult<PaymentResponse>> PostAsync(PaymentRequest paymentRequest)
         {
-            var paymentResponseDto = await this.paymentApplicationServices.CreateAsync(paymentRequest.ToApplicationDto());
+            try
+            {
+                var result = await this.validator.ValidateAsync(paymentRequest);
 
-            return paymentResponseDto.ToPresentationDto();
+                if (!result.IsValid)
+                {
+                    return BadRequest(result);
+                }
+
+                var paymentResponseDto = await this.paymentApplicationServices.CreateAsync(paymentRequest.ToApplicationDto());
+
+                return CreatedAtAction(nameof(Get), new { id = paymentResponseDto.Id }, paymentResponseDto.ToPresentationDto());
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
         }
 
         [HttpGet]
-        public async Task<PaymentResponse> Get(Guid id)
+        public async Task<ActionResult<PaymentResponse>> Get(Guid id)
         {
-            var paymentResponseDto = await this.paymentApplicationServices.GetAsync(id);
+            try
+            {
+                var paymentResponseDto = await this.paymentApplicationServices.GetAsync(id);
 
-            return paymentResponseDto.ToPresentationDto();
+                if (paymentResponseDto == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(paymentResponseDto.ToPresentationDto());
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
         }
     }
 }
