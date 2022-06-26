@@ -8,6 +8,7 @@
     [JsonConverter(typeof(SourceJsonConverter))]
     public abstract class Source
     {
+        //[JsonConverter(typeof(StringEnumConverter))]
         public SourceType Type { get; set; }
     }
 }

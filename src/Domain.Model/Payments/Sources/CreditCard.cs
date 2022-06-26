@@ -36,7 +36,7 @@
         public override void MaskSensitiveData()
         {
             this.Number = this.Number.Mask(0, this.Number.Length - 1);
-            this.Cvv = this.Cvv.Mask(0, this.Number.Length);
+            this.Cvv = this.Cvv.Mask(0, this.Cvv.Length);
         }
     }
 }

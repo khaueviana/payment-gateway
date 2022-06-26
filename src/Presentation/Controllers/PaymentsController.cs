@@ -34,7 +34,7 @@ namespace PaymentGateway.Presentation.Controllers
 
                 var paymentResponseDto = await this.paymentApplicationServices.CreateAsync(paymentRequest.ToApplicationDto());
 
-                return CreatedAtAction(nameof(Get), new { id = paymentResponseDto.Id }, paymentResponseDto.ToPresentationDto());
+                return CreatedAtAction($"{nameof(Get)}", new { id = paymentResponseDto.Id }, paymentResponseDto.ToPresentationDto());
             }
             catch (Exception ex)
             {
@@ -43,6 +43,7 @@ namespace PaymentGateway.Presentation.Controllers
         }
 
         [HttpGet]
+        [Route("{id}")]
         public async Task<ActionResult<PaymentResponse>> Get(Guid id)
         {
             try

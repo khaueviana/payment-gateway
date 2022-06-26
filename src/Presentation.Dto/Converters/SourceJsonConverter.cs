@@ -29,7 +29,16 @@
 
         public override void Write(Utf8JsonWriter writer, Source value, JsonSerializerOptions options)
         {
+            var jsonSerializerOptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
+            jsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
 
+            var json = value.Type switch
+            {
+                SourceType.CreditCard => JsonSerializer.Serialize(value as CreditCard, jsonSerializerOptions),
+                _ => string.Empty
+            };
+
+            writer.WriteRawValue(json);
         }
     }
 }
