@@ -5,20 +5,19 @@
     public class CreditCard : Source
     {
         public CreditCard(
-            SourceType type,
             string number,
             int expiryMonth,
             int expiryYear,
             string name,
             string cvv,
-            Billing billing) : base(type)
+            Billing billing) : base(SourceType.CreditCard)
         {
-            Number = number;
-            ExpiryMonth = expiryMonth;
-            ExpiryYear = expiryYear;
-            Name = name;
-            Cvv = cvv;
-            Billing = billing;
+            this.Number = number;
+            this.ExpiryMonth = expiryMonth;
+            this.ExpiryYear = expiryYear;
+            this.Name = name;
+            this.Cvv = cvv;
+            this.Billing = billing;
         }
 
         public string Number { get; private set; }
