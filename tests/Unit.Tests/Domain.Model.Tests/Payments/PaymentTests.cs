@@ -1,10 +1,6 @@
 ﻿namespace PaymentGateway.Domain.Model.Tests.Payments
 {
-    using AutoFixture;
-    using FluentAssertions;
     using Infrastructure.CrossCutting.Extensions;
-    using PaymentGateway.Domain.Model.Payments;
-    using PaymentGateway.Domain.Model.Payments.Sources;
 
     public class PaymentTests
     {
@@ -60,7 +56,7 @@
             // Assert
             payment.Status.Should().Be(Status.Authorized);
             payment.Source.As<CreditCard>().Number.Should().Be(creditCard.Number.Mask(0, creditCard.Number.Length - 1));
-            payment.Source.As<CreditCard>().Cvv.Should().Be(creditCard.Cvv.Mask(0, creditCard.Number.Length - 1));
+            payment.Source.As<CreditCard>().Cvv.Should().Be(creditCard.Cvv.Mask(0, creditCard.Cvv.Length));
         }
 
         [Fact]
@@ -108,7 +104,7 @@
             // Assert
             payment.Status.Should().Be(Status.Declined);
             payment.Source.As<CreditCard>().Number.Should().Be(creditCard.Number.Mask(0, creditCard.Number.Length - 1));
-            payment.Source.As<CreditCard>().Cvv.Should().Be(creditCard.Cvv.Mask(0, creditCard.Number.Length - 1));
+            payment.Source.As<CreditCard>().Cvv.Should().Be(creditCard.Cvv.Mask(0, creditCard.Cvv.Length));
         }
     }
 }

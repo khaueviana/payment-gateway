@@ -67,4 +67,8 @@ Retrieve the payment details
 - Logging and Telemetry
 - Resilience (timeout, retries, circuit breakers, fallbacks)
 - Security (as a secure vault to store credit card details)
-- Component & Integration Tests
+- Tests
+    - Increase Unti Tests Coverage
+    - Objects Builders
+    - Component Tests
+    - Integration Tests
