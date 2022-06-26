@@ -32,9 +32,9 @@ namespace PaymentGateway.Presentation.Controllers
                     return BadRequest(result);
                 }
 
-                var paymentResponseDto = await this.paymentApplicationServices.CreateAsync(paymentRequest.ToApplicationDto());
+                var paymentResponse = await this.paymentApplicationServices.CreateAsync(paymentRequest.ToApplicationDto());
 
-                return CreatedAtAction($"{nameof(Get)}", new { id = paymentResponseDto.Id }, paymentResponseDto.ToPresentationDto());
+                return CreatedAtAction($"{nameof(Get)}", new { id = paymentResponse.Id }, paymentResponse.ToPresentationDto());
             }
             catch (Exception ex)
             {
@@ -48,14 +48,14 @@ namespace PaymentGateway.Presentation.Controllers
         {
             try
             {
-                var paymentResponseDto = await this.paymentApplicationServices.GetAsync(id);
+                var paymentResponse = await this.paymentApplicationServices.GetAsync(id);
 
-                if (paymentResponseDto == null)
+                if (paymentResponse == null)
                 {
                     return NotFound();
                 }
 
-                return Ok(paymentResponseDto.ToPresentationDto());
+                return Ok(paymentResponse.ToPresentationDto());
             }
             catch (Exception ex)
             {
