@@ -24,13 +24,12 @@
         public static DomainModel.Sources.Source ToDomainModel(this MongoDBModel.Sources.Source source) =>
             source.Type switch
             {
-                (int)DomainModel.Sources.SourceType.CreditCard => new DomainModel.Sources.CreditCard((DomainModel.Sources.SourceType)source.Type,
-                                                        source.Number,
-                                                        source.ExpiryMonth,
-                                                        source.ExpiryYear,
-                                                        source.Name,
-                                                        source.Cvv,
-                                                        source.Billing.ToDomainModel()),
+                (int)DomainModel.Sources.SourceType.CreditCard => new DomainModel.Sources.CreditCard(source.Number,
+                                                                                                     source.ExpiryMonth,
+                                                                                                     source.ExpiryYear,
+                                                                                                     source.Name,
+                                                                                                     source.Cvv,
+                                                                                                     source.Billing.ToDomainModel()),
                 _ => null,
             };
     }

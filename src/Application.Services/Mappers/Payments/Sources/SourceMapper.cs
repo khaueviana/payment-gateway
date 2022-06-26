@@ -24,13 +24,12 @@
         public static DomainModel.Sources.Source ToDomainModel(this ApplicationDto.Sources.Source source) =>
             source switch
             {
-                ApplicationDto.Sources.CreditCard creditCard => new DomainModel.Sources.CreditCard((DomainModel.Sources.SourceType)creditCard.Type,
-                                                                                                    creditCard.Number,
-                                                                                                    creditCard.ExpiryMonth,
-                                                                                                    creditCard.ExpiryYear,
-                                                                                                    creditCard.Name,
-                                                                                                    creditCard.Cvv,
-                                                                                                    creditCard.Billing.ToDomainModel()),
+                ApplicationDto.Sources.CreditCard creditCard => new DomainModel.Sources.CreditCard(creditCard.Number,
+                                                                                                   creditCard.ExpiryMonth,
+                                                                                                   creditCard.ExpiryYear,
+                                                                                                   creditCard.Name,
+                                                                                                   creditCard.Cvv,
+                                                                                                   creditCard.Billing.ToDomainModel()),
                 _ => null,
             };
     }
