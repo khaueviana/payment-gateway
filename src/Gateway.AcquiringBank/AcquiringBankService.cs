@@ -6,7 +6,7 @@
     using System.Threading.Tasks;
     using DomainModel = Domain.Model.Payments;
 
-    internal class AcquiringBankService : IAcquiringBankService
+    public class AcquiringBankService : IAcquiringBankService
     {
         private readonly IAcquiringBankApi acquiringBankApi;
 

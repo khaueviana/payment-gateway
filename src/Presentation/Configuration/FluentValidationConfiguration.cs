@@ -8,7 +8,7 @@
     {
         public static IServiceCollection AddFluentValidators(this IServiceCollection services)
         {
-            services.AddScoped<IValidator<PaymentRequest>, PaymentRequestValidator>();
+            services.AddSingleton<IValidator<PaymentRequest>, PaymentRequestValidator>();
 
             return services;
         }

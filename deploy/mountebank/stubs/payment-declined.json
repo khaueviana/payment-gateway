@@ -1,0 +1,21 @@
+{
+    "predicates": [
+        {
+            "deepEquals": {
+                "method": "POST",
+                "path": "/v1/payments"
+            }
+        }
+    ],
+    "responses": [
+        {
+            "is": {
+                "statusCode": 200,
+                "headers": {
+                    "Content-Type": "application/json; charset=UTF-8"
+                },
+                "body": "{\"IsAuthorized\":false}"
+            }
+        }
+    ]
+}

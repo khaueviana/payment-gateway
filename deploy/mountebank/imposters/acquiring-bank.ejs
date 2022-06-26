@@ -1,0 +1,10 @@
+{
+    "port": 4051,
+    "protocol": "http",
+    "name": "acquiring-bank",
+    "stubs": [
+        <% include ../stubs/payment-authorized.json %>,
+        <% include ../stubs/payment-declined.json %>,
+        <% include ../stubs/default.json %>
+    ]
+}

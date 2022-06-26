@@ -1,0 +1,32 @@
+{
+    "predicates": [
+        {
+            "and": [
+                {
+                    "deepEquals": {
+                        "method": "POST",
+                        "path": "/v1/payments"
+                    }
+                },
+                {
+                    "contains": {
+                        "body": {
+                            "Number" : "4444 4444 4444 4444"
+                        }
+                    }
+                }
+            ]     
+        }
+    ],
+    "responses": [
+        {
+            "is": {
+                "statusCode": 200,
+                "headers": {
+                    "Content-Type": "application/json; charset=UTF-8"
+                },
+                "body": "{\"IsAuthorized\":true}"
+            }
+        }
+    ]
+}

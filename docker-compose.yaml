@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  mongo:
+    container_name: payment-gateway-mongo
+    image: mongo:latest
+    restart: always
+    hostname: mongo
+    ports:
+      - 27017:27017
+
+  mountebank:
+    container_name: payment-gateway-mountebank
+    image: bbyars/mountebank:latest
+    ports:
+      - 2525:2525 # mountebank
+      - 4051:4051 # acquiring-bank
+    volumes:
+      - ./deploy/mountebank:/app/config
+    command: mb start --configfile /app/config/imposters/imposters.ejs

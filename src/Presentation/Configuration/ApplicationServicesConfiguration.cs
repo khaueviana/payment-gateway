@@ -7,7 +7,7 @@
     {
         public static IServiceCollection AddAplicationServices(this IServiceCollection services)
         {
-            services.AddScoped<IPaymentApplicationService, PaymentApplicationService>();
+            services.AddSingleton<IPaymentApplicationService, PaymentApplicationService>();
             return services;
         }
     }
