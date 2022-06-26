@@ -35,7 +35,7 @@ make run
 make infra
 ```
 
-## Running Unit Tests
+### Running Unit Tests
 
 ```
 make unit-tests
