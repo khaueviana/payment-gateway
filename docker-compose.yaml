@@ -1,6 +1,21 @@
 version: "3"
 
 services:
+  service:
+    image: payment-gateway
+    container_name: payment-gateway
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    links:
+      - mongo
+      - mountebank
+    depends_on:
+      - mongo
+      - mountebank
+  
   mongo:
     container_name: payment-gateway-mongo
     image: mongo:latest
