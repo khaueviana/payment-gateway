@@ -38,6 +38,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C73FF0A7-EBB9-4D2E-8FEA-8A005DF43DC3}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yaml = docker-compose.yaml
+		Dockerfile = Dockerfile
 		LICENSE = LICENSE
 		Makefile = Makefile
 		README.md = README.md
