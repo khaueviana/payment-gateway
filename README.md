@@ -72,3 +72,4 @@ Retrieve the payment details
     - Objects Builders
     - Component Tests
     - Integration Tests
+- Publish the APP on a Cloud Environment (AWS or Azure)
