@@ -38,7 +38,7 @@ make infra
 ### Running Unit Tests
 
 ```
-make unit-tests
+dotnet test
 ```
 
 ## Usage
